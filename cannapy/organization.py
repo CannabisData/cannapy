@@ -56,3 +56,42 @@ class Organization(object):
         organization.license_status = licensed_business['active']
         organization.license_creation_date = licensed_business['createdate']
         return organization
+
+    def __str__(self):
+        """Return a string representation of the Organization."""
+        output = '{} ({})\n'.format(self.name, self.ubi)
+        output += 'Address: {}\n'.format(self.get_address_string())
+        if self.county:
+            output += 'County: {}\n'.format(self.county)
+        if self.phone:
+            output += 'Phone: {}\n'.format(self.phone)
+        output += 'License: {}\n'.format(self.get_license_string())
+        return output
+
+    def get_address_string(self):
+        """Return a string representation of the Organization address."""
+        output = ''
+        if self.address_line_1:
+            output += '{}'.format(self.address_line_1)
+        if self.address_line_2:
+            output += ', {}'.format(self.address_line_2)
+        if self.city:
+            output += ', {}'.format(self.city)
+        if self.state:
+            output += ', {}'.format(self.state)
+        if self.zipcode:
+            output += '  {}'.format(self.zipcode)
+        return output
+
+    def get_license_string(self):
+        """Return a string representation of the Organization license."""
+        output = ''
+        if self.license_id:
+            output += '{}'.format(self.license_id)
+        if self.license_creation_date:
+            output += ' (Created {})'.format(self.license_creation_date)
+        if self.license_type:
+            output += '\n{}'.format(self.license_type)
+        if self.license_status:
+            output += ' ({})'.format(self.license_status)
+        return output
