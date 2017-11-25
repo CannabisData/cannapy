@@ -1,0 +1,13 @@
+site_name: cannapy
+site_description: Python module for working with Cannabis data
+site_author: Gregory Foster
+repo_url: https://github.com/cannabisdata/cannapy
+
+theme: readthedocs
+
+pages:
+- Home: index.md
+- About:
+  - Release Notes: about/changelog.md
+  - Contributing: about/contributing.md
+  - License: about/license.md
