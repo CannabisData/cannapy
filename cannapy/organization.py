@@ -30,36 +30,44 @@ class Organization(object):
             'county': '',
             'phone': '',
             'license_id': '',
+            'license_type': '',
             'license_status': '',
             'license_creation_date': ''
         }
 
         # Set instance properties from keyword arguments or default values
-        for (key, default) in default_values.items():
-            setattr(self, key, kwargs.get(key, default))
+        for (attr, default) in default_values.items():
+            setattr(self, attr, kwargs.get(attr, default))
 
     @classmethod
     def from_licensed_business(cls, licensed_business):
         """Instantiate an Organization from a WSLCB licensed business."""
-        organization = cls()
-        organization.name = licensed_business['organization']
-        organization.ubi = licensed_business['ubi']
-        organization.address_line_1 = licensed_business['address']
-        organization.address_line_2 = licensed_business['address_line_2']
-        organization.city = licensed_business['city']
-        organization.state = licensed_business['state']
-        organization.zipcode = licensed_business['zip']
-        organization.county = licensed_business['county']
-        organization.phone = licensed_business['dayphone']
-        organization.license_id = licensed_business['license']
-        organization.license_type = licensed_business['type']
-        organization.license_status = licensed_business['active']
-        organization.license_creation_date = licensed_business['createdate']
-        return organization
+        attribute_map = {
+            'organization': 'name',
+            'ubi': 'ubi',
+            'address': 'address_line_1',
+            'address_line_2': 'address_line_2',
+            'city': 'city',
+            'state': 'state',
+            'zip': 'zipcode',
+            'county': 'county',
+            'dayphone': 'phone',
+            'license': 'license_id',
+            'type': 'license_type',
+            'active': 'license_status',
+            'createdate': 'license_creation_date'
+        }
+
+        # Map organization attributes from the licensed business
+        org_attributes = {}
+        for (source_attr, target_attr) in attribute_map.items():
+            org_attributes[target_attr] = licensed_business[source_attr]
+
+        return cls(**org_attributes)
 
     def __str__(self):
         """Return a string representation of the Organization."""
-        output = '{} ({})\n'.format(self.name, self.ubi)
+        output = '{} (UBI {})\n'.format(self.name, self.ubi)
         output += 'Address: {}\n'.format(self.get_address_string())
         if self.county:
             output += 'County: {}\n'.format(self.county)
@@ -91,7 +99,7 @@ class Organization(object):
         if self.license_creation_date:
             output += ' (Created {})'.format(self.license_creation_date)
         if self.license_type:
-            output += '\n{}'.format(self.license_type)
+            output += ' {}'.format(self.license_type)
         if self.license_status:
             output += ' ({})'.format(self.license_status)
         return output
