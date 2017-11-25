@@ -1,16 +1,18 @@
 Unix: [![Unix Build Status](https://img.shields.io/travis/cannabisdata/cannapy/master.svg)](https://travis-ci.org/cannabisdata/cannapy) Windows: [![Windows Build Status](https://img.shields.io/appveyor/ci/cannabisdata/cannapy/master.svg)](https://ci.appveyor.com/project/cannabisdata/cannapy)<br>Metrics: [![Coverage Status](https://img.shields.io/coveralls/cannabisdata/cannapy/master.svg)](https://coveralls.io/r/cannabisdata/cannapy) [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/cannabisdata/cannapy.svg)](https://scrutinizer-ci.com/g/cannabisdata/cannapy/?branch=master)<br>Usage: [![PyPI Version](https://img.shields.io/pypi/v/cannapy.svg)](https://pypi.python.org/pypi/cannapy)
 
-# Overview
+# cannapy
 
-Python module for working with Cannabis data
+## Overview
 
-# Setup
+Python library for working with *Cannabis* data.
 
-## Requirements
+## Setup
+
+### Requirements
 
 * Python 3.6+
 
-## Installation
+### Installation
 
 Install cannapy with pip:
 
@@ -26,7 +28,7 @@ $ cd cannapy
 $ python setup.py install
 ```
 
-# Usage
+## Usage
 
 After installation, the package can imported:
 

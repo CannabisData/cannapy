@@ -1,8 +1,6 @@
-"""A sample module."""
+"""Utility functions."""
 
 import logging
-
-
 log = logging.getLogger(__name__)
 
 
