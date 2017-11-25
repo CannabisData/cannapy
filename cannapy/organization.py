@@ -63,6 +63,11 @@ class Organization(object):
         for (source_attr, target_attr) in attribute_map.items():
             org_attributes[target_attr] = licensed_business[source_attr]
 
+        # Change DataFrame 'nan' values to empty strings
+        for (key, value) in org_attributes.items():
+            if value == 'nan':
+                org_attributes[key] = ''
+
         return cls(**org_attributes)
 
     def __str__(self):
@@ -101,5 +106,5 @@ class Organization(object):
         if self.license_type:
             output += ' {}'.format(self.license_type)
         if self.license_status:
-            output += ' ({})'.format(self.license_status)
+            output += ' - {}'.format(self.license_status)
         return output
