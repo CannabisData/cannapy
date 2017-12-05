@@ -11,6 +11,7 @@ python_version = "3.6"
 
 [packages]
 
+sodapy = "*"
 # testpackage = "*"
 
 
@@ -29,8 +30,8 @@ coverage = "~=4.0"
 "coverage.space" = "~=0.8"
 mkdocs = "*"
 docutils = "*"
-Pygments = "*"
+pygments = "*"
 wheel = "*"
-PyInstaller = "*"
+pyinstaller = "*"
 twine = "*"
 sniffer = "*"

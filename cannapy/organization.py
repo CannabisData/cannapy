@@ -1,3 +1,6 @@
+"""A class representing an organization."""
+
+
 class Organization(object):
     """An organization.
 
