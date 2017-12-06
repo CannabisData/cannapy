@@ -1,20 +1,29 @@
-"""An interface to the WSLCB Socrata-based open data portal."""
+"""Module for an interface to the WSLCB Socrata-based open data portal."""
 
 import os
 import time
 from sodapy import Socrata
+import pandas as pd
 
 # WSLCB Socrata Open Data Portal URL
 WSLCB_PORTAL_URL = 'data.lcb.wa.gov'
 
 # WSLCB Socrata Open Data Portal Dataset IDs
-WSLCB_PORTAL_DATASETS = {
+WSLCB_PORTAL_DATASET_IDS = {
     'licensed_businesses': 'bhbp-x4eb',
+}
+
+# WSLCB Socrata Open Data Portal Dataset Columns
+WSLCB_PORTAL_DATASET_COLUMNS = {
+    'licensed_businesses': ['license', 'type', 'createdate', 'active',
+                            'organization', 'address', 'address_line_2',
+                            'city', 'state', 'zip', 'county', 'dayphone',
+                            'ubi'],
 }
 
 
 class WSLCBPortal(object):
-    """A class interface to the WSLCB open data portal."""
+    """An interface to the WSLCB Socrata-based open data portal."""
 
     def __init__(self, app_token=''):
         """Constructor."""
@@ -27,6 +36,17 @@ class WSLCBPortal(object):
 
         # The Socrata client property will be initialized on first get
         self._client = None
+
+    def get_dataset(self, dataset_id):
+        """Return the requested dataset."""
+        return self.client.get(dataset_id)
+
+    def get_dataframe(self, dataset_id):
+        """Return the requested dataset loaded in a Pandas DataFrame."""
+        dataset = self.get_dataset(dataset_id)
+        columns = WSLCB_PORTAL_DATASET_COLUMNS['licensed_businesses']
+        dataframe = pd.DataFrame.from_records(dataset, columns=columns)
+        return dataframe
 
     def dataset_last_updated(self, dataset_id):
         """Return the requested dataset's last update timestamp."""
