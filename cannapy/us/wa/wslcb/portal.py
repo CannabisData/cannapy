@@ -10,11 +10,14 @@ WSLCB_PORTAL_URL = 'data.lcb.wa.gov'
 
 # WSLCB Socrata Open Data Portal Dataset IDs
 WSLCB_PORTAL_DATASET_IDS = {
+    'compliance_checks':   '3qmf-vgdg',
     'licensed_businesses': 'bhbp-x4eb',
 }
 
 # WSLCB Socrata Open Data Portal Dataset Columns
 WSLCB_PORTAL_DATASET_COLUMNS = {
+    'compliance_checks':   ['date', 'license_number', 'county_name',
+                            'city_name', 'action'],
     'licensed_businesses': ['license', 'type', 'createdate', 'active',
                             'organization', 'address', 'address_line_2',
                             'city', 'state', 'zip', 'county', 'dayphone',
@@ -44,7 +47,7 @@ class WSLCBPortal(object):
     def get_dataframe(self, dataset_id):
         """Return the requested dataset loaded in a Pandas DataFrame."""
         dataset = self.get_dataset(dataset_id)
-        columns = WSLCB_PORTAL_DATASET_COLUMNS['licensed_businesses']
+        columns = WSLCB_PORTAL_DATASET_COLUMNS[dataset_id]
         dataframe = pd.DataFrame.from_records(dataset, columns=columns)
         return dataframe
 
