@@ -8,20 +8,13 @@ import pandas as pd
 # WSLCB Socrata Open Data Portal URL
 WSLCB_PORTAL_URL = 'data.lcb.wa.gov'
 
-# WSLCB Socrata Open Data Portal Dataset IDs
-WSLCB_PORTAL_DATASET_IDS = {
-    'compliance_checks':   '3qmf-vgdg',
-    'licensed_businesses': 'bhbp-x4eb',
-}
-
 # WSLCB Socrata Open Data Portal Dataset Columns
 WSLCB_PORTAL_DATASET_COLUMNS = {
-    'compliance_checks':   ['date', 'license_number', 'county_name',
-                            'city_name', 'action'],
-    'licensed_businesses': ['license', 'type', 'createdate', 'active',
-                            'organization', 'address', 'address_line_2',
-                            'city', 'state', 'zip', 'county', 'dayphone',
-                            'ubi'],
+    '3qmf-vgdg': ['date', 'license_number', 'county_name', 'city_name',
+                  'action'],
+    'bhbp-x4eb': ['license', 'type', 'createdate', 'active', 'organization',
+                  'address', 'address_line_2', 'city', 'state', 'zip',
+                  'county', 'dayphone', 'ubi'],
 }
 
 
