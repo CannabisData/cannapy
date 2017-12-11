@@ -15,6 +15,8 @@ WSLCB_PORTAL_DATASET_COLUMNS = {
     'bhbp-x4eb': ['license', 'type', 'createdate', 'active', 'organization',
                   'address', 'address_line_2', 'city', 'state', 'zip',
                   'county', 'dayphone', 'ubi'],
+    'dgm4-3cm6': ['visit_date', 'license_number', 'county_name', 'city_name',
+                  'case', 'penalty_type', 'violation_code', 'wac_code'],
 }
 
 
