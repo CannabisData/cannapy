@@ -17,6 +17,8 @@ WSLCB_PORTAL_DATASET_COLUMNS = {
                   'county', 'dayphone', 'ubi'],
     'dgm4-3cm6': ['visit_date', 'license_number', 'county_name', 'city_name',
                   'case', 'violation_code', 'wac_code', 'penalty_type'],
+    'w7wg-8m52': ['date', 'license_number', 'city_name', 'county_name',
+                  'activity'],
 }
 
 
