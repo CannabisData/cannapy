@@ -39,6 +39,11 @@ class WSLCBPortal(object):
         # The Socrata client property will be initialized on first get
         self._client = None
 
+    def get_dataset_metadata(self, dataset_id):
+        """Return the requested dataset's metadata."""
+        metadata = self.client.get_metadata(dataset_id)
+        return metadata
+
     def get_dataset(self, dataset_id):
         """Return the requested dataset."""
         return self.client.get(dataset_id)
@@ -53,7 +58,7 @@ class WSLCBPortal(object):
     def dataset_last_updated(self, dataset_id):
         """Return the requested dataset's last update timestamp."""
         # Retrieve the source dataset's metadata
-        metadata = self.client.get_metadata(dataset_id)
+        metadata = self.get_dataset_metadata(dataset_id)
 
         # Retrieve dataset last update timestamp in epoch/Unix time
         last_updated = metadata['rowsUpdatedAt']
