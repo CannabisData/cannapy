@@ -12,8 +12,8 @@ WSLCB_PORTAL_URL = 'data.lcb.wa.gov'
 WSLCB_PORTAL_DATASET_COLUMNS = {
     '3qmf-vgdg': ['date', 'license_number', 'county_name', 'city_name',
                   'action'],
-    '8rrd-wvpk': ['sales_date', 'sales_year_month', 'grams_harvested',
-                  'pounds_harvested'],
+    '8rrd-wvpk': ['sales_date', 'sales_year_month', 'pounds_harvested',
+                  'grams_harvested'],
     'bhbp-x4eb': ['license', 'type', 'createdate', 'active', 'organization',
                   'address', 'address_line_2', 'city', 'state', 'zip',
                   'county', 'dayphone', 'ubi'],
