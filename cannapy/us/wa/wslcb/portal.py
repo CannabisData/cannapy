@@ -48,7 +48,7 @@ class WSLCBPortal(object):
 
     def get_dataset(self, dataset_id):
         """Return the requested dataset."""
-        return self.client.get(dataset_id)
+        return self.client.get(dataset_id, limit=100000)
 
     def get_dataframe(self, dataset_id):
         """Return the requested dataset loaded in a Pandas DataFrame."""
