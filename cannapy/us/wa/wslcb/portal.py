@@ -21,6 +21,8 @@ WSLCB_PORTAL_DATASET_COLUMNS = {
                   'case', 'violation_code', 'wac_code', 'penalty_type'],
     'w7wg-8m52': ['date', 'license_number', 'city_name', 'county_name',
                   'activity'],
+    'vbqh-2tf4': ['sales_date', 'sales_year_month', 'organization', 'type',
+                  'childweight_pounds', 'childweight_grams']
 }
 
 
