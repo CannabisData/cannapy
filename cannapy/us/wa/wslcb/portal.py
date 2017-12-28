@@ -62,7 +62,7 @@ class WSLCBPortal(object):
     def get_entire_dataset(self, dataset_id, order_by):
         """Return the requested dataset (automated paging)."""
         count = self.get_dataset_count(dataset_id)
-        limit = 1000000
+        limit = 500000
         dataset = []
         for offset in range(0, count, limit):
             dataset.extend(self.client.get(dataset_id, order=order_by,
