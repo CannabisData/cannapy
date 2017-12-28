@@ -8,7 +8,7 @@ import pandas as pd
 # WSLCB Socrata Open Data Portal URL
 WSLCB_PORTAL_URL = 'data.lcb.wa.gov'
 
-# WSLCB Socrata Open Data Portal Dataset Columns
+# WSLCB Socrata Open Data Portal Dataset Columns (order by cannapy)
 WSLCB_PORTAL_DATASET_COLUMNS = {
     '3qmf-vgdg': ['date', 'license_number', 'county_name', 'city_name',
                   'action'],
@@ -21,6 +21,8 @@ WSLCB_PORTAL_DATASET_COLUMNS = {
                   'case', 'violation_code', 'wac_code', 'penalty_type'],
     'kdyh-jjfc': ['sales_date', 'sales_year_month', 'type',
                   'child_usableweight_grams', 'child_usableweight_pounds'],
+    'msk5-ts9q': ['sessiontimedate', 'orgname', 'inventory_type',
+                  'usableweight_grams', 'usableweight_pounds', 'price'],
     'w7wg-8m52': ['date', 'license_number', 'city_name', 'county_name',
                   'activity'],
     'vbqh-2tf4': ['sales_date', 'sales_year_month', 'organization', 'type',
