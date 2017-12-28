@@ -56,9 +56,18 @@ class WSLCBPortal(object):
         return int(metadata[0]['count'])
 
     def get_dataset(self, dataset_id):
-        """Return the requested dataset."""
-        limit = self.get_dataset_count(dataset_id)
-        return self.client.get(dataset_id, limit=limit)
+        """Return the requested dataset (limited to 100K rows)."""
+        return self.client.get(dataset_id, limit=100000)
+
+    def get_entire_dataset(self, dataset_id, order_by):
+        """Return the requested dataset (automated paging)."""
+        count = self.get_dataset_count(dataset_id)
+        limit = 1000000
+        dataset = []
+        for offset in range(0, count, limit):
+            dataset.extend(self.client.get(dataset_id, order=order_by,
+                                           offset=offset, limit=limit))
+        return dataset
 
     def get_dataframe(self, dataset_id):
         """Return the requested dataset loaded in a Pandas DataFrame."""
