@@ -50,9 +50,15 @@ class WSLCBPortal(object):
         metadata = self.client.get_metadata(dataset_id)
         return metadata
 
+    def get_dataset_count(self, dataset_id):
+        """Return the requested dataset's total number of rows."""
+        metadata = self.client.get(dataset_id, select='count(*)')
+        return int(metadata[0]['count'])
+
     def get_dataset(self, dataset_id):
         """Return the requested dataset."""
-        return self.client.get(dataset_id, limit=100000)
+        limit = self.get_dataset_count(dataset_id)
+        return self.client.get(dataset_id, limit=limit)
 
     def get_dataframe(self, dataset_id):
         """Return the requested dataset loaded in a Pandas DataFrame."""
